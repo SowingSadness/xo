@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="static/js/vendors/pixi.js/bin/pixi.js"></script>
+    <script src="static/js/core.js"></script>
+    <script src="static/js/mouse.js"></script>
+    <script src="static/js/app.js"></script>
+    <script src="static/js/battlefield.js"></script>
+    <script src="static/js/field.js"></script>
+</head>
+<body>
+
+<script>
+    "use strict";
+    var mouse = new MousePos();
+    var app = new XoApp(document.body, 1000, 800);
+    app.addAction(mouse);
+
+    var battlefield = new Battlefield(function (turn) { app.setActive(turn); });
+    app.addAction(battlefield);
+
+    for (var x=0; x < 5; x++) {
+        app.addField(new FieldX(battlefield, new PIXI.Point(200 - x*25, 400 - x*10)));
+    }
+    for (x=0; x < 4; x++) {
+        app.addField(new FieldO(battlefield, new PIXI.Point(850 - x*25, 400 - x*10)));
+    }
+    app.launch();
+</script>
+</body>
+</html>

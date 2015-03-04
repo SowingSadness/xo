@@ -1,0 +1,3 @@
+syntax: glob
+.idea
+static\js\vendors\pixi.js
