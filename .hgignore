@@ -1,3 +1,4 @@
 syntax: glob
+.git
 .idea
 static\js\vendors\pixi.js
